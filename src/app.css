@@ -1,0 +1,40 @@
+.app {
+  margin: 0 auto;
+  max-width: 1536px;
+  font-family: 'Niramit', sans-serif;
+}
+
+.app div.header {
+  background-color: white;
+  margin: 16px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  border-radius: 16px;
+  display: flex;
+  overflow: hidden;
+  flex-direction: row;
+  align-items: center;
+}
+
+.app div.header img.profile {
+  height: 256px;
+  width: var(height);
+  border-radius: 4px;
+}
+
+.app div.header div.bio {
+  flex-grow: 1;
+  margin: 8px 16px;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 64px;
+}
+
+.app div.header div.bio div.name {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.app div.header div.bio div.description {
+  font-size: 16px;
+  line-height: 20px;
+}
