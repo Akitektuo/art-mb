@@ -13,6 +13,7 @@
   overflow: hidden;
   flex-direction: row;
   align-items: center;
+  animation: appear 2s;
 }
 
 .app div.header img.profile {
@@ -37,4 +38,16 @@
 .app div.header div.bio div.description {
   font-size: 16px;
   line-height: 20px;
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  to {
+    opacity: 1;
+    visibility: visible;
+  }
 }
