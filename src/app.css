@@ -2,6 +2,9 @@
   margin: 0 auto;
   max-width: 1536px;
   font-family: 'Niramit', sans-serif;
+  opacity: 0;
+  animation: appear 2s ease 1s;
+  animation-fill-mode: forwards;
 }
 
 .app div.header {
@@ -13,7 +16,6 @@
   overflow: hidden;
   flex-direction: row;
   align-items: center;
-  animation: appear 2s;
 }
 
 .app div.header img.profile {
@@ -39,15 +41,19 @@
   font-size: 16px;
   line-height: 20px;
 }
+.app .gallery {
+  margin: 32px;
+}
+.app .gallery div.tile-description {
+  text-align: center;
+}
 
 @keyframes appear {
   from {
     opacity: 0;
-    visibility: hidden;
   }
 
   to {
     opacity: 1;
-    visibility: visible;
   }
 }
