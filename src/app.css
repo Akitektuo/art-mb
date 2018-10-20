@@ -16,20 +16,27 @@
   overflow: hidden;
   flex-direction: row;
   align-items: center;
+  flex-wrap: wrap;
 }
 
-.app div.header img.profile {
+.app div.header div.profile {
+  margin: 0 auto;
+  height: 256px;
+}
+
+.app div.header div.profile img {
   height: 256px;
   width: var(height);
   border-radius: 4px;
 }
 
 .app div.header div.bio {
-  flex-grow: 1;
   margin: 8px 16px;
   display: flex;
   flex-direction: column;
   padding-bottom: 64px;
+  flex: 999;
+  min-width: 15em;
 }
 
 .app div.header div.bio div.name {

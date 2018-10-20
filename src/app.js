@@ -68,7 +68,9 @@ class App extends Component {
     return (
       <div className="app">
         <div className="header">
-          <img className="profile" src={ imageURL }/>
+          <div className="profile">
+            <img src={ imageURL }/>
+          </div>
           <div className="bio">
             <div className="name">
               { name }
