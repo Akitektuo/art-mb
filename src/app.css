@@ -3,7 +3,7 @@
   max-width: 1536px;
   font-family: 'Niramit', sans-serif;
   opacity: 0;
-  animation: appear 2s ease 1s;
+  animation: appear 2s ease 2s;
   animation-fill-mode: forwards;
 }
 
@@ -35,7 +35,6 @@
   margin: 8px 16px;
   display: flex;
   flex-direction: column;
-  padding-bottom: 64px;
   flex: 999;
   min-width: 15em;
 }
@@ -49,9 +48,40 @@
   font-size: 16px;
   line-height: 20px;
 }
+
+.app div.header div.bio div.contact {
+  display: flex;
+  margin-top: 8px;
+  flex-wrap: wrap;
+}
+
+.app div.header div.bio div.contact div.phone {
+  display: flex;
+  margin-right: 32px;
+  align-items: center;
+}
+
+.app div.header div.bio div.contact div.phone a.phone-text {
+  font-weight: bold;
+  margin-left: 4px;
+  font-size: 14px;
+}
+
+.app div.header div.bio div.contact div.email {
+  display: flex;
+  align-items: center;
+}
+
+.app div.header div.bio div.contact div.email a.email-text {
+  font-weight: bold;
+  margin-left: 4px;
+  font-size: 16px;
+}
+
 .app .gallery {
   margin: 32px;
 }
+
 .app .gallery div.tile-description {
   text-align: center;
 }

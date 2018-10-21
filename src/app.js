@@ -10,6 +10,8 @@ class App extends Component {
       imageURL: "",
       name: "",
       description: "",
+      phone: "",
+      email: "",
       data: []
     });
     if (!firebase.apps.length) {
@@ -23,7 +25,9 @@ class App extends Component {
       const {
         image,
         name,
-        description
+        description,
+        phone,
+        email
       } = sBio.val();
       firebase.database().ref("/painting/").once("value", sImg => {
         if (sImg.val() == null) {
@@ -53,6 +57,8 @@ class App extends Component {
           imageURL: image,
           name,
           description,
+          phone,
+          email,
           data
         });
       })
@@ -77,6 +83,20 @@ class App extends Component {
             </div>
             <div className="description">
               { description }
+            </div>
+            <div className="contact">
+              <div className="phone">
+                <img src="https://png.icons8.com/ios-glyphs/30/333333/phone.png"/>
+                <a href={`tel:${this.state.phone.replace(/\s+/g, "")}`} className="phone-text">
+                  { this.state.phone }
+                </a>
+              </div>
+              <div className="email">
+                <img src="https://png.icons8.com/ios-glyphs/30/333333/new-post.png"/>
+                <a href={`mailto:${this.state.email}`} className="email-text">
+                  { this.state.email }
+                </a>
+              </div>
             </div>
           </div>
         </div>
