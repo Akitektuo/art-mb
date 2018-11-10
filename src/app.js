@@ -25,10 +25,14 @@ class App extends Component {
       const {
         image,
         name,
-        description,
         phone,
         email
       } = sBio.val();
+      let {
+        description
+      } = sBio.val();
+      const year = new Date().getFullYear();
+      description = description.replace(/\[yyyy\]/g, year);
       firebase.database().ref("/painting/").once("value", sImg => {
         if (sImg.val() == null) {
           return;

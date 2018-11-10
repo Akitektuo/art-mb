@@ -7,6 +7,10 @@
   animation-fill-mode: forwards;
 }
 
+.app div {
+  white-space: pre-line;
+}
+
 .app div.header {
   background-color: white;
   margin: 16px;
