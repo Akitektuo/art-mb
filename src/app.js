@@ -2,14 +2,19 @@ import React, { Component } from 'react';
 import './app.css';
 import firebase from 'firebase';
 import Gallery from 'react-grid-gallery';
+import classNames from 'classnames';
 
 class App extends Component {
+
+  BUTTON_INITAL_TEXT = "Mai multe informații";
 
   componentWillMount() {
     this.setState({
       imageURL: "",
       name: "",
       description: "",
+      infoButtonText: this.BUTTON_INITAL_TEXT,
+      extraInfo: "",
       phone: "",
       email: "",
       data: []
@@ -25,6 +30,7 @@ class App extends Component {
       const {
         image,
         name,
+        extraInfo,
         phone,
         email
       } = sBio.val();
@@ -61,6 +67,7 @@ class App extends Component {
           imageURL: image,
           name,
           description,
+          extraInfo,
           phone,
           email,
           data
@@ -73,35 +80,50 @@ class App extends Component {
     const { 
       imageURL,
       name,
-      description
+      description,
+      extraInfo,
+      infoButtonText,
+      phone,
+      email
     } = this.state;
     return (
       <div className="app">
         <div className="header">
-          <div className="profile">
-            <img src={ imageURL }/>
+          <div className="presentation">
+            <div className="profile">
+              <img src={ imageURL }/>
+            </div>
+            <div className="bio">
+              <div className="name">
+                { name }
+              </div>
+              <div className="description">
+                { description }
+              </div>
+              <div className="contact">
+                <div className="more-info" onClick={this.onClickInfo}>
+                  { infoButtonText }
+                </div>
+                <div className="phone">
+                  <img src="https://png.icons8.com/ios-glyphs/30/333333/phone.png"/>
+                  <a href={`tel:${phone.replace(/\s+/g, "")}`} className="phone-text">
+                    { phone }
+                  </a>
+                </div>
+                <div className="email">
+                  <img src="https://png.icons8.com/ios-glyphs/30/333333/new-post.png"/>
+                  <a href={`mailto:${email}`} className="email-text">
+                    { email }
+                  </a>
+                </div>
+              </div>
+            </div>
           </div>
-          <div className="bio">
-            <div className="name">
-              { name }
-            </div>
-            <div className="description">
-              { description }
-            </div>
-            <div className="contact">
-              <div className="phone">
-                <img src="https://png.icons8.com/ios-glyphs/30/333333/phone.png"/>
-                <a href={`tel:${this.state.phone.replace(/\s+/g, "")}`} className="phone-text">
-                  { this.state.phone }
-                </a>
-              </div>
-              <div className="email">
-                <img src="https://png.icons8.com/ios-glyphs/30/333333/new-post.png"/>
-                <a href={`mailto:${this.state.email}`} className="email-text">
-                  { this.state.email }
-                </a>
-              </div>
-            </div>
+          <div className={classNames("detail", {
+            "hide": infoButtonText === this.BUTTON_INITAL_TEXT,
+            "show": infoButtonText !== this.BUTTON_INITAL_TEXT
+          })}>
+            { extraInfo }
           </div>
         </div>
         <div className="gallery">
@@ -114,6 +136,15 @@ class App extends Component {
       </div>
     );
   }
+
+  onClickInfo = () => {
+    let { infoButtonText } = this.state;
+    infoButtonText = infoButtonText == this.BUTTON_INITAL_TEXT ? "Mai puține informații" : this.BUTTON_INITAL_TEXT;
+    this.setState({
+      infoButtonText
+    })
+  }
+
 }
 
 export default App;

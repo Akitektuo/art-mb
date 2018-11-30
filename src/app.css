@@ -3,7 +3,7 @@
   max-width: 1536px;
   font-family: 'Niramit', sans-serif;
   opacity: 0;
-  animation: appear 2s ease 2s;
+  animation: show 2s ease 2s;
   animation-fill-mode: forwards;
 }
 
@@ -18,24 +18,47 @@
   border-radius: 16px;
   display: flex;
   overflow: hidden;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.app div.header div.presentation {
+  display: flex;
+  overflow: hidden;
   flex-direction: row;
   align-items: center;
   flex-wrap: wrap;
 }
 
-.app div.header div.profile {
-  margin: 0 auto;
-  height: 256px;
+.app div.header div.detail {
+  padding: 16px;
+  line-height: 20px;
 }
 
-.app div.header div.profile img {
-  height: 256px;
+.app div.header div.hide {
+  height: 0;
+  opacity: 0;
+  padding: 0;
+  animation: hide 2s ease;
+}
+
+.app div.header div.show {
+  animation: show 2s ease;
+}
+
+.app div.header div.presentation div.profile {
+  margin: 0 auto;
+  height: 320px;
+}
+
+.app div.header div.presentation div.profile img {
+  height: 320px;
   width: var(height);
   border-radius: 4px;
   object-fit: cover;
 }
 
-.app div.header div.bio {
+.app div.header div.presentation div.bio {
   margin: 8px 16px;
   display: flex;
   flex-direction: column;
@@ -43,40 +66,54 @@
   min-width: 15em;
 }
 
-.app div.header div.bio div.name {
+.app div.header div.presentation div.bio div.name {
   font-size: 22px;
   font-weight: bold;
 }
 
-.app div.header div.bio div.description {
+.app div.header div.presentation div.bio div.description {
   font-size: 16px;
   line-height: 20px;
 }
 
-.app div.header div.bio div.contact {
+.app div.header div.presentation div.bio div.contact {
   display: flex;
   margin-top: 8px;
   flex-wrap: wrap;
 }
 
-.app div.header div.bio div.contact div.phone {
+.app div.header div.presentation div.bio div.contact .more-info {
+  margin-right: 32px;
+  font-weight: bold;
+  font-size: 14px;
+  padding: 2px 0;
+  text-transform: uppercase;
+  color: blue;
+  cursor: pointer;
+}
+
+.app div.header div.presentation div.bio div.contact .more-info:hover {
+  text-decoration: underline;
+}
+
+.app div.header div.presentation div.bio div.contact div.phone {
   display: flex;
   margin-right: 32px;
   align-items: center;
 }
 
-.app div.header div.bio div.contact div.phone a.phone-text {
+.app div.header div.presentation div.bio div.contact div.phone a.phone-text {
   font-weight: bold;
   margin-left: 4px;
   font-size: 14px;
 }
 
-.app div.header div.bio div.contact div.email {
+.app div.header div.presentation div.bio div.contact div.email {
   display: flex;
   align-items: center;
 }
 
-.app div.header div.bio div.contact div.email a.email-text {
+.app div.header div.presentation div.bio div.contact div.email a.email-text {
   font-weight: bold;
   margin-left: 4px;
   font-size: 16px;
@@ -90,7 +127,17 @@
   text-align: center;
 }
 
-@keyframes appear {
+@keyframes hide {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes show {
   from {
     opacity: 0;
   }
