@@ -44,6 +44,7 @@
 
 .app div.header div.show {
   animation: show 2s ease;
+  opacity: 1;
 }
 
 .app div.header div.presentation div.profile {
